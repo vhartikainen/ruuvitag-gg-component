@@ -1,0 +1,5 @@
+ruuvitag-sensor
+paho-mqtt
+awsiotsdk
+bleson
+pytest
