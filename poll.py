@@ -6,6 +6,8 @@ import paho.mqtt.publish as publish
 import os
 import json
 import awsiot.greengrasscoreipc
+import logging
+import bleson
 
 from ruuvitag_sensor.log import log
 ruuvitag_sensor.log.enable_console()
@@ -19,9 +21,10 @@ from awsiot.greengrasscoreipc.model import (
 from ruuvitag_sensor.ruuvi import RuuviTagSensor
 
 # TODO: Set the log level to something less verbose
+bleson.logger.set_level(logging.ERROR)
 # TODO: Parameterize
-mqtt_broker='test.mosquitto.org'
-#mqtt_broker='homeassistant.local'
+#mqtt_broker='test.mosquitto.org'
+mqtt_broker='homeassistant.local'
 mqtt_broker_username='mqtt'
 mqtt_broker_password='mqtt'
 topic='/ruuvi/{}/{}' # /ruuvi/<macaddress>/<measurement
